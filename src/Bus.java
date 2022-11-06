@@ -1,6 +1,8 @@
 public class Bus extends Transport implements Competing {
+    private final Capacity capacity;
     public Bus(String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
     }
 
     public enum Capacity {
@@ -28,6 +30,12 @@ public class Bus extends Transport implements Competing {
 
         public void setMaxPlace(int maxPlace) {
             this.maxPlace = maxPlace;
+        }
+    }
+    public void checkType() {
+        if (this.capacity!=null) { System.out.println("Тип авто по вместимости: " + this.capacity);
+        } else {
+            System.out.println("Недостаточно информации");
         }
     }
 

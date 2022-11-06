@@ -5,8 +5,8 @@ public abstract class Transport {
 
     public Transport(String brand, String model, double engineVolume) {
 
-        this.brand = Server.checkCondition(brand, "default");
-        this.model = Server.checkCondition(brand, "default");
+        this.brand = CheckCondition.checkCondition(brand, "default");
+        this.model = CheckCondition.checkCondition(brand, "default");
         if (engineVolume == 0) {
             this.engineVolume = 1.5;
         } else {

@@ -1,39 +1,16 @@
 public class Car extends Transport implements Competing {
-    public enum  bodyType {СЕДАН, ХЕТЧБЕК, КУПЕ, УНИВЕРСАЛ, ВНЕДОРОЖНИК,КРОССОВЕР,ПИКАП,ФУРГОН, МИНИВЕН;
-
-        public static String checkType() {
-            if (Car.bodyType != null) {
-                System.out.println("Тип авто по кузову " + bodyType);
-            } else {
-                System.out.println("Недостаточно информации");
-            }
-            return bodyType;
-        }
+    private final bodyType bodyType;
+    public enum  bodyType {СЕДАН, ХЕТЧБЕК, КУПЕ, УНИВЕРСАЛ, ВНЕДОРОЖНИК,КРОССОВЕР,ПИКАП,ФУРГОН, МИНИВЕН}
 
 
-
-    }
-    public Car(String brand, String model, double engineVolume, bodyType седан) {
-        super(brand, model, engineVolume);
-    }
-    private static String bodyType;
-
-    public Car(String brand, String model, double engineVolume, String bodyType) {
+    public Car(String brand, String model, double engineVolume,bodyType bodyType) {
         super(brand, model, engineVolume);
         this.bodyType = bodyType;
-    }
 
-    public static String getBodyType() {
+    }
+    public Car.bodyType getBodyType() {
         return bodyType;
     }
-
-    public void setBodyType(String bodyType) {
-        this.bodyType = bodyType;
-    }
-
-
-
-
 
     @Override
     public void startMove() {
@@ -56,5 +33,11 @@ public class Car extends Transport implements Competing {
         return 220;
     }
 
-
+    public void checkType() {
+        if (this.bodyType !=null) {
+            System.out.println("Тип авто по кузову: " + this.bodyType);
+        } else {
+            System.out.println("Недостаточно информации");
+        }
+    }
 }
